@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>STM32 在VScode中的嵌入式开发环境搭建 | Jiahui&#39;s website</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://finchee.github.io/favicon.ico?v=1704182129270">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://finchee.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://finchee.github.io">Jiahui&#39;s website</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="https://blog.finchee.site" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="http://finchee.site:8083" class="menu">
+                图书馆
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="http://finchee.site:5244/" class="menu" target="_blank">
+                多媒体
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/post/about" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>STM32 在VScode中的嵌入式开发环境搭建</h1>
+            <p class="article-meta">
+              2023-10-26
+              
+                <a href="https://finchee.github.io/tag/Okl1MJMYo/" class="badge secondary">
+                  学习笔记
+                </a>
+              
+                <a href="https://finchee.github.io/tag/Za6sfT2xg/" class="badge secondary">
+                  VScode
+                </a>
+              
+                <a href="https://finchee.github.io/tag/l7C8eiKfLA/" class="badge secondary">
+                  STM32
+                </a>
+              
+                <a href="https://finchee.github.io/tag/LoDHyH49Ic/" class="badge secondary">
+                  STM32CubeCLT
+                </a>
+              
+            </p>
+            
+            <div class="post-content" v-pre>
+              <p>工欲善其事，必先利其器. ----《论语·卫灵公》</p>
+<!-- more -->
+<h2 id="硬件环境">硬件环境</h2>
+<ul>
+<li><a href="http://47.111.11.73/docs/boards/stm32/zdyz_stm32f103_mini.html">STM32开发板: stm32f103-mini开发板</a></li>
+<li>ST-Link 烧录器</li>
+</ul>
+<h2 id="软件环境">软件环境</h2>
+<p>参照官网教程安装即可.</p>
+<ul>
+<li><a href="https://code.visualstudio.com">VScode</a></li>
+<li><a href="https://www.st.com/en/development-tools/stm32cubemx.html">STM32CubeMX</a></li>
+<li><a href="https://www.st.com/zh/development-tools/stm32cubeclt.html">STM32CubeCLT </a> or <a href="https://www.st.com/en/development-tools/stm32cubeide.html">STM32CubeIDE </a>(完全包含STM32CubeCLT环境, 按照后续要求配置路径即可)</li>
+<li><a href="https://cmake.org/download">CMake</a></li>
+<li><a href="https://git-scm.com/downloads">Git</a></li>
+</ul>
+<h2 id="vscode-环境配置">VScode 环境配置</h2>
+<p>VScode 左侧菜单栏的扩展中搜索 <strong>STM32 VS Code Extension</strong>, 点击 Install 安装插件.<br>
+<img src="https://finchee.github.io/post-images/1698660802460.png" alt="" loading="lazy"></p>
+<h2 id="工程搭建">工程搭建</h2>
+<p>点击位置①、位置②, 导入已有工程或新建工程. 新建的工程通过 CubeMX 进行配置, 这里不做讲解.<br>
+<img src="https://finchee.github.io/post-images/1698919728190.png" alt="" loading="lazy"><br>
+工程内如果找不到 STM32CubeCLT 或 STM32CubeIDE 的路径, 打开位置①工程目录 cmake 内的 gcc-arm-none-eabi.cmake 文件, 在位置②和位置③处修改.<br>
+<img src="https://finchee.github.io/post-images/1698920675102.png" alt="" loading="lazy"></p>
+<h2 id="build">Build</h2>
+<p>首次打开工程, 可能缺少 vcpkg、cmake、ninja 环境, VScode 会自动安装, 如果报错可能是网络问题, 可以在 cvpkg 窗口内确认原因.<br>
+<img src="https://finchee.github.io/post-images/1698920964236.png" alt="" loading="lazy"><br>
+打开左侧插件栏 CMake, 点左侧窗口上方的 Build All Projects 按钮编译工程, 编译成功后位置③ OUTPUT 窗口提示<code>[build] 生成已完成，退出代码为 0</code>, 表示成功. 如果编译失败, 可查看 PROBLEMS 窗口中的提示信息, 修改错误后再编译, 直到[build]成功.<br>
+<img src="https://finchee.github.io/post-images/1698921276777.png" alt="" loading="lazy"></p>
+<h2 id="debug">Debug</h2>
+<p>打开编译成功的工程, 点击菜单Run-&gt;Open Configurations; 或者点击左侧插件栏 Run and Debug(Ctrl+Shift+D) 上方 Open launch.json 图标; 或者工程目录中直接打开 .vscode\launch.json 文件, 配置如下, 我未按照原文要求修改相应的工具目录.<br>
+<img src="https://finchee.github.io/post-images/1698978763068.png" alt="" loading="lazy"><br>
+硬件连接ST-link通电后进行调试, 点击菜单Run-&gt;Start Debugging；或者点击左侧插件栏Run and Debug(Ctrl+Shift+D)上方Launch图标，进入Debugging。左侧窗口中可以查看寄存器、本地变更、调用栈，可在左侧栏WATCH中增加全局变量查看。窗口上方有调试按钮方便调试操作，按钮包含运行、单步、跳入、跳出、复位、停止。也可从菜单Run中点击相应菜单项或者用快捷键F5、F10、F11、shift+F11、ctrl+shift+F5、shift+F5。在源代码窗口左侧行号上点击可直接增加断点，也可在左侧栏BREAKPOINTS栏中修改。<br>
+<img src="https://finchee.github.io/post-images/1698979256130.png" alt="" loading="lazy"></p>
+<h2 id="验证结果">验证结果</h2>
+<figure data-type="image" tabindex="1"><img src="https://finchee.github.io/post-images/1698981215984.jpg" alt="" loading="lazy"></figure>
+<h2 id="感谢">感谢</h2>
+<p>全文参考自<a href="https://blog.51cto.com/u_16221697/7044751?u_atoken=cbcb45a2-191b-4cc6-986e-3983e379a610&amp;u_asession=01mWGDFcKxdmZuXoK5TBY0AyY2tzYlCGudIPXc7lCvQpg2cf9M9SOFUSkeGDMt2pV_9qskbM_GYu6Oyt7oQwzkO9sq8AL43dpOnCClYrgFm6o&amp;u_asig=053WpEGOMjJshjOP0P2n9LK97RmhlHbBgNijlI27rP41uw-VjEHfXeonYF_qbFrZq_4Um7NiSJu1t7zXuUEkjMQgUdAufw1jETqhkVZcNAFf9Yu3URGs4rZS8tbZl8pcGvBE0c_77HO89-Ad8Dmjn2rtr-3Vv4g33ya9EDkLdWJsKBo4r_-g6uHazyVo7CXHcIksmHjM0JOodanL5-M1Qs1d0LeZWAILaGo5mxRYbp_LC_qI4CWk_ELXMsBTCSIgnmskI4FNQ3jYwtBwA9JZVVeltvCu2tBuplxRYVmhE_iSbY94r_LXIIil3Y3aVPRGAe&amp;u_aref=M2aPkV8%2FUZiccZaON24HaCNmWSI%3D">使用VS Code进行STM32单片机开发（创建工程、编译、调试）基于官方插件STM32 for VS Code Extension</a>, 感谢作者 sealevelrise 的贡献.</p>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://finchee.github.io/post/gridea-mermaid-ce-shi/">
+                <h3 class="post-title">
+                  Gridea 中 mermaid 的使用
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
+          
+
+          
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://finchee.github.io/images/avatar.png?v=1704182129270" class="no-responsive avatar">
+    <div class="text-muted"></div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://finchee.github.io/post/stm32-guan-yu-systick-de-xue-xi/">STM32 关于 Systick 的学习</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://finchee.github.io/post/jie-zhu-xin-yong-qia-zai-dian-nao-shang-ji-zhang/">借助信用卡等工具在电脑上记账</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://finchee.github.io/post/2023-nian-du-guan-yu-tou-zi-de-sui-bi/">2023年度关于投资的随笔</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://finchee.github.io/post/jh-swsn001_python-shi-xian-gen-ju-20-ri-ping-jun-xian-jiao-yi-heng-sheng-ke-ji-biao-de-de-ce-lue/">Python实现根据20日平均线交易恒生科技标的的策略</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://finchee.github.io/post/gridea-tong-bu-wen-ti-jie-jue-fang-an/">Gridea 同步问题解决方案</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://finchee.github.io/post/stm32-qian-ru-shi-kai-fa-huan-jing-da-jian/">STM32 在VScode中的嵌入式开发环境搭建</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://finchee.github.io/post/gridea-mermaid-ce-shi/">Gridea 中 mermaid 的使用</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://finchee.github.io/post/ate-zi-dong-hua-study-note-1/">关于 ATE 的学习笔记</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://finchee.github.io/post/hello-gridea/">Hello!</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://finchee.github.io/post/about/">关于</a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://finchee.github.io/tag/rRyK6sOoS3/" class="badge secondary">
+          理财
+        </a>
+      
+        <a href="https://finchee.github.io/tag/RcHZf0yUm/" class="badge ">
+          投资
+        </a>
+      
+        <a href="https://finchee.github.io/tag/fsgKdKNiZa/" class="badge secondary">
+          随笔
+        </a>
+      
+        <a href="https://finchee.github.io/tag/NrQB8j5x9/" class="badge success">
+          Python
+        </a>
+      
+        <a href="https://finchee.github.io/tag/InRLw8kFRa/" class="badge success">
+          量化投资
+        </a>
+      
+        <a href="https://finchee.github.io/tag/7NDmFKTSv/" class="badge secondary">
+          Clash
+        </a>
+      
+        <a href="https://finchee.github.io/tag/gySnu6J1L/" class="badge warning">
+          Gridea
+        </a>
+      
+        <a href="https://finchee.github.io/tag/Okl1MJMYo/" class="badge ">
+          学习笔记
+        </a>
+      
+        <a href="https://finchee.github.io/tag/Za6sfT2xg/" class="badge success">
+          VScode
+        </a>
+      
+        <a href="https://finchee.github.io/tag/l7C8eiKfLA/" class="badge ">
+          STM32
+        </a>
+      
+        <a href="https://finchee.github.io/tag/LoDHyH49Ic/" class="badge secondary">
+          STM32CubeCLT
+        </a>
+      
+        <a href="https://finchee.github.io/tag/nsZllaJG-/" class="badge success">
+          Mermaid
+        </a>
+      
+        <a href="https://finchee.github.io/tag/i9Ts2SCj5/" class="badge secondary">
+          ATE
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://finchee.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'a7d2d32380b4e710740c',
+        clientSecret: '0cb9b914932ea640502e6edd2f94fd5e53adf6ec',
+        repo: 'finchee.github.io',
+        owner: 'Finchee',
+        admin: ['Finchee'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
