@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>STM32 关于 Systick 的学习 | Jiahui&#39;s website</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.0/css/all.min.css">
+<link rel="shortcut icon" href="https://finchee.github.io/favicon.ico?v=1713194067203">
+<link rel="stylesheet" href="https://finchee.github.io/styles/main.css">
+
+
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+
+
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+Systick 初始化流程
+sequenceDiagram
+    main.c-&gt;&gt;+stm32f4xx_hal.c: HAL_Init()
+    stm32f4xx_hal.c-&gt;&gt;+stm32f4xx_ha..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://finchee.github.io">
+        <img src="https://finchee.github.io/images/avatar.png?v=1713194067203" class="site-logo">
+        <h1 class="site-title">Jiahui&#39;s website</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://blog.finchee.site" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="http://finchee.site:8083" class="site-nav">
+            图书馆
+          </a>
+        
+      
+        
+          <a href="http://finchee.site:5244/" class="site-nav" target="_blank">
+            多媒体
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://finchee.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">STM32 关于 Systick 的学习</h2>
+            <div class="post-date">2023-12-26</div>
+            
+            <div class="post-content" v-pre>
+              <!-- more -->
+<h2 id="systick-初始化流程">Systick 初始化流程</h2>
+<pre><code class="language-mermaid">sequenceDiagram
+    main.c-&gt;&gt;+stm32f4xx_hal.c: HAL_Init()
+    stm32f4xx_hal.c-&gt;&gt;+stm32f4xx_hal.c: HAL_InitTick(TICK_INT_PRIORITY)
+    alt (TicksNumb-1UL)超出timer的24位有效值
+        stm32f4xx_hal.c-&gt;&gt;+stm32f4xx_hal_cortex.c: HAL_SYSTICK_Config(SystemCoreClock / (1000U / uwTickFreq))
+        stm32f4xx_hal_cortex.c-&gt;&gt;+core_cm4.h: SysTick_Config(TicksNumb)
+        core_cm4.h--&gt;&gt;-stm32f4xx_hal_cortex.c: return 1UL
+        stm32f4xx_hal_cortex.c--&gt;&gt;-stm32f4xx_hal.c: return 1UL
+        stm32f4xx_hal.c--&gt;&gt;+stm32f4xx_hal.c: return HAL_ERROR
+    else
+        core_cm4.h-&gt;&gt;+core_cm4.h: set reload register as (TicksNumb - 1UL)
+        core_cm4.h-&gt;&gt;+core_cm4.h: Set Interrupt Priority
+        core_cm4.h-&gt;&gt;+core_cm4.h: Load the SysTick Counter Value
+        core_cm4.h-&gt;&gt;+core_cm4.h: Enable SysTick IRQ and SysTick Timer
+        core_cm4.h--&gt;&gt;+stm32f4xx_hal_cortex.c: 0UL
+        stm32f4xx_hal_cortex.c--&gt;&gt;-stm32f4xx_hal.c: return 0UL
+        alt TickPriority不超出优先级位数(15)
+            stm32f4xx_hal.c-&gt;&gt;+stm32f4xx_hal_cortex.c: HAL_NVIC_SetPriority(SysTick_IRQn, TickPriority, 0U)
+            stm32f4xx_hal_cortex.c-&gt;&gt;+core_cm4.h: NVIC_SetPriority(IRQn, NVIC_EncodePriority(prioritygroup, PreemptPriority, SubPriority))
+            core_cm4.h-&gt;&gt;+core_cm4.h: Set Interrupt Priority
+        else
+            stm32f4xx_hal_cortex.c--&gt;&gt;-stm32f4xx_hal.c: return HAL_ERROR
+        end
+        stm32f4xx_hal.c--&gt;&gt;+stm32f4xx_hal.c: return HAL_OK
+    end
+</code></pre>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.0.2/+esm';
+mermaid.initialize({ startOnLoad: false });
+await mermaid.run({
+  querySelector: '.language-mermaid',
+});
+</script>
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://finchee.github.io/post/jie-zhu-xin-yong-qia-zai-dian-nao-shang-ji-zhang/">
+                  <h3 class="post-title">
+                    借助信用卡等工具在电脑上记账
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'a7d2d32380b4e710740c',
+        clientSecret: '0cb9b914932ea640502e6edd2f94fd5e53adf6ec',
+        repo: 'finchee.github.io',
+        owner: 'Finchee',
+        admin: ['Finchee'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
