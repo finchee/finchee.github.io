@@ -1,0 +1,6 @@
+site_name: finchee's site
+site_url: https://finchee.github.io
+site_author: finchee
+dev_addr: '127.0.0.1:8111'
+theme:
+  name: material
