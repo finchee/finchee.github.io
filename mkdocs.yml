@@ -4,3 +4,5 @@ site_author: finchee
 dev_addr: '127.0.0.1:8111'
 theme:
   name: material
+  features:
+    - navigation.tabs
