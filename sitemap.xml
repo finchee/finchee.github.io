@@ -2,22 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>http://blog.finchee.site/</loc>
-         <lastmod>2024-05-23</lastmod>
+         <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://blog.finchee.site/about_me/</loc>
-         <lastmod>2024-05-23</lastmod>
+         <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://blog.finchee.site/notes/mkdocs/%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</loc>
-         <lastmod>2024-05-23</lastmod>
+         <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>http://blog.finchee.site/notes/tspi_linux/%E7%BC%96%E8%AF%91%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</loc>
-         <lastmod>2024-05-23</lastmod>
+         <lastmod>2024-05-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
