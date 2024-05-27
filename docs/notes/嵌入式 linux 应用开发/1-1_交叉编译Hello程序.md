@@ -1,5 +1,7 @@
 # 交叉编译Hello程序
 
+---
+
 ## 开发环境(后续环境未变化时不再赘述)
 
 服务器(linux-server):
@@ -78,7 +80,7 @@ ARM 开发板执行 ./hello 碰到如下问题:
     finchee@raspberrypi:~/Documents/hello $ file hello
     hello: ELF 32-bit LSB pie executable, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-armhf.so.3, BuildID[sha1]=b1771a5aa9c09f0b31345c161ad5ff6fa4909399, for GNU/Linux 3.2.0, not stripped
 
-根据[ARM上运行可执行程序出现No such file or directory的问题](https://blog.csdn.net/li_Xing666/article/details/81487840)中的方法, 服务器编译时增加 `-static` 参数
+根据 [ARM上运行可执行程序出现No such file or directory的问题](https://blog.csdn.net/li_Xing666/article/details/81487840) 中的方法, 服务器编译时增加 `-static` 参数
 
     finchee@linux-server:~/Documents/hello$ arm-linux-gnueabihf-gcc -o hello hello.c -static
 
@@ -89,9 +91,41 @@ ARM 开发板执行 ./hello 碰到如下问题:
     finchee@raspberrypi:~/Documents/hello $ file ./hello
     ./hello: ELF 32-bit LSB executable, ARM, EABI5 version 1 (GNU/Linux), statically linked, BuildID[sha1]=a5b138ce6e9a9bcd4a2014062121e7a1e4a9f505, for GNU/Linux 3.2.0, not stripped
 
-两次编译区别如下
+两次编译后的区别如下
 
     EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-armhf.so.3, 
     EABI5 version 1 (GNU/Linux), statically linked, 
 
-这一部分待探究补充.
+关于使用静态链接的方式进行编译, 这一部分待探究补充.
+
+## hello 程序的引申
+
+### .h/.c 文件的差别
+
+.h 文件
+
+- 功能: 声明函数/declare (举例:int add(int a, int b); 编译器根据声明检查函数的使用是否正确)
+- 位置:
+  - 系统目录(工具链的目录)
+  - 用户指定目录(-I dir)
+
+.c 文件
+
+- 功能: 实现/define(implement)
+- 位置:
+  - 系统目录
+  - 用户指定目录
+
+可以根据以上引申解决以下问题
+
+1. 头文件找不到
+2. 函数未定义
+
+### 系统层次
+
+- user
+  - APP
+  - libc <-- printf/open/read
+- kernel
+  - FS/driver
+- 硬件
