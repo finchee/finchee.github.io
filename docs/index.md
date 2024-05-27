@@ -11,3 +11,5 @@
 [图书馆](http://finchee.site:8083)
 
 [多媒体](http://finchee.site:5244/)
+
+[Homeassistant](http://finchee.site:8123)
