@@ -16,6 +16,8 @@
         <link rel="prev" href="../../tspi_linux/%E7%BC%96%E8%AF%91%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">
       
       
+        <link rel="next" href="../2-1_GCC%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/">
+      
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.24">
@@ -656,6 +658,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-1_GCC%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GCC编译过程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -791,6 +814,7 @@
 
 
 <h1 id="hello">交叉编译Hello程序</h1>
+<hr />
 <h2 id="_1">开发环境(后续环境未变化时不再赘述)</h2>
 <p>服务器(linux-server):</p>
 <pre><code>finchee@linux-server:~/Documents/hello$ uname -a
@@ -872,30 +896,42 @@ EABI5 version 1 (GNU/Linux), statically linked,
 <p>关于使用静态链接的方式进行编译, 这一部分待探究补充.</p>
 <h2 id="hello_3">hello 程序的引申</h2>
 <h3 id="hc">.h/.c 文件的差别</h3>
-<p>.h 文件
-    - 功能: 声明函数/declare (举例:int add(int a, int b); 编译器根据声明检查函数的使用是否正确)
-    - 位置:
-      - 系统目录(工具链的目录)
-      - 用户指定目录(-I dir)</p>
-<p>.c 文件
-    - 功能: 实现/define(implement)
-    - 位置:
-      - 系统目录
-      - 用户指定目录</p>
-<p>可以依据以上思路解决以下问题</p>
+<p>.h 文件</p>
+<ul>
+<li>功能: 声明函数/declare (举例:int add(int a, int b); 编译器根据声明检查函数的使用是否正确)</li>
+<li>位置:<ul>
+<li>系统目录(工具链的目录)</li>
+<li>用户指定目录(-I dir)</li>
+</ul>
+</li>
+</ul>
+<p>.c 文件</p>
+<ul>
+<li>功能: 实现/define(implement)</li>
+<li>位置:<ul>
+<li>系统目录</li>
+<li>用户指定目录</li>
+</ul>
+</li>
+</ul>
+<p>可以根据以上引申解决以下问题</p>
 <ol>
 <li>头文件找不到</li>
 <li>函数未定义</li>
 </ol>
 <h3 id="_2">系统层次</h3>
-<ol>
-<li>user</li>
+<ul>
+<li>user<ul>
 <li>APP</li>
-<li>libc(printf/open/read)</li>
-<li>kernel</li>
+<li>libc &lt;-- printf/open/read</li>
+</ul>
+</li>
+<li>kernel<ul>
 <li>FS/driver</li>
+</ul>
+</li>
 <li>硬件</li>
-</ol>
+</ul>
 
 
 
