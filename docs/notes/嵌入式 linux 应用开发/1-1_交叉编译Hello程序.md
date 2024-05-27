@@ -102,19 +102,10 @@ ARM 开发板执行 ./hello 碰到如下问题:
 
 ### .h/.c 文件的差别
 
-.h 文件
-
-- 功能: 声明函数/declare (举例:int add(int a, int b); 编译器根据声明检查函数的使用是否正确)
-- 位置:
-  - 系统目录(工具链的目录)
-  - 用户指定目录(-I dir)
-
-.c 文件
-
-- 功能: 实现/define(implement)
-- 位置:
-  - 系统目录
-  - 用户指定目录
+|文件|功能|位置|
+|-|-|-|
+|.h|声明函数/declare (举例:int add(int a, int b); 编译器根据声明检查函数的使用是否正确)|1. 系统目录(工具链的目录)<br>2. 用户指定目录(-I dir)|
+|.c|实现/define(implement)|1. 系统目录<br>2. 用户指定目录|
 
 可以根据以上引申解决以下问题
 
@@ -123,9 +114,9 @@ ARM 开发板执行 ./hello 碰到如下问题:
 
 ### 系统层次
 
-- user
-  - APP
-  - libc <-- printf/open/read
-- kernel
-  - FS/driver
-- 硬件
+|系统层次|||
+|-|-|-|
+|usr|APP||
+|usr|libc|<--printf/open/read|
+|kernel|FS/Driver|<--open/read|
+|底层硬件|||
