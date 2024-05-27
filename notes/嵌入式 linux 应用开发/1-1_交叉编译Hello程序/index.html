@@ -10,7 +10,7 @@
         <meta name="author" content="finchee">
       
       
-        <link rel="canonical" href="http://blog.finchee.site/notes/%E5%B5%8C%E5%85%A5%E5%BC%8F%20linux%20%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91Hello%E7%A8%8B%E5%BA%8F/">
+        <link rel="canonical" href="http://blog.finchee.site/notes/%E5%B5%8C%E5%85%A5%E5%BC%8F%20linux%20%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/1-1_%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91Hello%E7%A8%8B%E5%BA%8F/">
       
       
         <link rel="prev" href="../../tspi_linux/%E7%BC%96%E8%AF%91%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">
@@ -614,6 +614,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#hello_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      hello 程序的引申
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="hello 程序的引申">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hc" class="md-nav__link">
+    <span class="md-ellipsis">
+      .h/.c 文件的差别
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      系统层次
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -709,6 +742,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#hello_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      hello 程序的引申
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="hello 程序的引申">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hc" class="md-nav__link">
+    <span class="md-ellipsis">
+      .h/.c 文件的差别
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      系统层次
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -790,7 +856,7 @@ finchee@raspberrypi:~/Documents/hello $ ./hello
 finchee@raspberrypi:~/Documents/hello $ file hello
 hello: ELF 32-bit LSB pie executable, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-armhf.so.3, BuildID[sha1]=b1771a5aa9c09f0b31345c161ad5ff6fa4909399, for GNU/Linux 3.2.0, not stripped
 </code></pre>
-<p>根据<a href="https://blog.csdn.net/li_Xing666/article/details/81487840">ARM上运行可执行程序出现No such file or directory的问题</a>中的方法, 服务器编译时增加 <code>-static</code> 参数</p>
+<p>根据 <a href="https://blog.csdn.net/li_Xing666/article/details/81487840">ARM上运行可执行程序出现No such file or directory的问题</a> 中的方法, 服务器编译时增加 <code>-static</code> 参数</p>
 <pre><code>finchee@linux-server:~/Documents/hello$ arm-linux-gnueabihf-gcc -o hello hello.c -static
 </code></pre>
 <p>拷贝到 ARM 开发板执行结果如下</p>
@@ -799,11 +865,37 @@ Hello, finchee!
 finchee@raspberrypi:~/Documents/hello $ file ./hello
 ./hello: ELF 32-bit LSB executable, ARM, EABI5 version 1 (GNU/Linux), statically linked, BuildID[sha1]=a5b138ce6e9a9bcd4a2014062121e7a1e4a9f505, for GNU/Linux 3.2.0, not stripped
 </code></pre>
-<p>两次编译区别如下</p>
+<p>两次编译后的区别如下</p>
 <pre><code>EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-armhf.so.3, 
 EABI5 version 1 (GNU/Linux), statically linked,
 </code></pre>
-<p>这一部分待探究补充.</p>
+<p>关于使用静态链接的方式进行编译, 这一部分待探究补充.</p>
+<h2 id="hello_3">hello 程序的引申</h2>
+<h3 id="hc">.h/.c 文件的差别</h3>
+<p>.h 文件
+    - 功能: 声明函数/declare (举例:int add(int a, int b); 编译器根据声明检查函数的使用是否正确)
+    - 位置:
+      - 系统目录(工具链的目录)
+      - 用户指定目录(-I dir)</p>
+<p>.c 文件
+    - 功能: 实现/define(implement)
+    - 位置:
+      - 系统目录
+      - 用户指定目录</p>
+<p>可以依据以上思路解决以下问题</p>
+<ol>
+<li>头文件找不到</li>
+<li>函数未定义</li>
+</ol>
+<h3 id="_2">系统层次</h3>
+<ol>
+<li>user</li>
+<li>APP</li>
+<li>libc(printf/open/read)</li>
+<li>kernel</li>
+<li>FS/driver</li>
+<li>硬件</li>
+</ol>
 
 
 
