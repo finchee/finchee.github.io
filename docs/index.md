@@ -1,4 +1,4 @@
-# 首页
+# 主页
 
 你好，欢迎来到我的小站！
 
@@ -12,4 +12,4 @@
 
 [多媒体](http://finchee.site:5244/)
 
-[Homeassistant](http://finchee.site:8123)
+[家庭助理](http://finchee.site:8123)
