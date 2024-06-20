@@ -1,6 +1,6 @@
 # CDCAM 探究
 
-项目地址: [cdcam](https://github.com/dukelec/cdcam)
+项目地址: [cdcam](https://github.com/dukelec/cdcam/tree/hw_v1)
 
 ## Hardware
 

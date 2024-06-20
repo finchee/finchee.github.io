@@ -4,10 +4,28 @@ site_author: finchee
 dev_addr: '127.0.0.1:8111'
 theme:
   name: material
+  custom_dir: overrides
   features:
     - navigation.tabs
+    - navigation.indexes 
 markdown_extensions:
   - mdx_truly_sane_lists 
 plugins:
-    - search
-    - mermaid2
+  - search
+  - mermaid2
+nav:
+- 主页: 
+  - index.md
+  - about_me.md
+- 学习笔记:
+  - mkdocs:
+    - .\notes\mkdocs\index.md
+  - CDPNP:
+    - .\notes\CDPNP\index.md
+    - .\notes\CDPNP\01_CDCAM 探究.md
+  - 嵌入式 linux 应用开发:
+    - .\notes\嵌入式 linux 应用开发\1-1_交叉编译Hello程序.md
+    - .\notes\嵌入式 linux 应用开发\2-1_GCC编译过程.md
+    - .\notes\嵌入式 linux 应用开发\2-2_GCC常用选项.md
+    - tspi linux 开发:
+      - .\notes\tspi_linux\编译问题记录.md

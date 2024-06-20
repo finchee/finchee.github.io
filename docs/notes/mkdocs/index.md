@@ -10,7 +10,7 @@
 
 ## mkdocs 支持无序列表嵌套的方法
 
-安装 mdx_truly_sane_lists 
+安装 mdx_truly_sane_lists
 
     pip install mdx_truly_sane_lists
 
