@@ -6,12 +6,12 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="finchee" name="author"/>
-<link href="https://blog.finchee.site/notes/CDPNP/01_CDCAM%20%E6%8E%A2%E7%A9%B6/" rel="canonical"/>
-<link href="../" rel="prev"/>
-<link href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%20linux%20%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/1-1_%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91Hello%E7%A8%8B%E5%BA%8F/" rel="next"/>
+<link href="https://blog.finchee.site/notes/%E5%B5%8C%E5%85%A5%E5%BC%8F_linux_%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/1-1_%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91Hello%E7%A8%8B%E5%BA%8F/" rel="canonical"/>
+<link href="../../CDPNP/01_CDCAM_%E6%8E%A2%E7%A9%B6/" rel="prev"/>
+<link href="../2-1_GCC%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.24" name="generator"/>
-<title>CDCAM 探究 - finchee's site</title>
+<title>交叉编译Hello程序 - finchee's site</title>
 <link href="../../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#cdcam">
+<a class="md-skip" href="#hello">
           跳转至
         </a>
 </div>
@@ -47,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              CDCAM 探究
+              交叉编译Hello程序
             
           </span>
 </div>
@@ -183,23 +183,23 @@
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../mkdocs/">
 <span class="md-ellipsis">
-    mkdocs
+    MkDocs
   </span>
 </a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_1">
 <span class="md-nav__icon md-icon"></span>
-            mkdocs
+            MkDocs
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../">
+<a class="md-nav__link" href="../../CDPNP/">
 <span class="md-ellipsis">
     CDPNP
   </span>
@@ -208,23 +208,47 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_2">
 <span class="md-nav__icon md-icon"></span>
             CDPNP
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../CDPNP/01_CDCAM_%E6%8E%A2%E7%A9%B6/">
+<span class="md-ellipsis">
+    CDCAM 探究
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    嵌入式_linux_应用开发
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+            嵌入式_linux_应用开发
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
 <span class="md-ellipsis">
-    CDCAM 探究
+    交叉编译Hello程序
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
-    CDCAM 探究
+    交叉编译Hello程序
   </span>
 </a>
 <nav aria-label="目录" class="md-nav md-nav--secondary">
@@ -234,32 +258,77 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#hardware">
+<a class="md-nav__link" href="#_1">
 <span class="md-ellipsis">
-      Hardware
+      开发环境
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#firmware">
+<a class="md-nav__link" href="#hello_1">
 <span class="md-ellipsis">
-      Firmware
+      Hello 程序解析
     </span>
 </a>
-<nav aria-label="Firmware" class="md-nav">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gcc-hello">
+<span class="md-ellipsis">
+      服务器执行 gcc 编译的 hello
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arm-gcc-hello">
+<span class="md-ellipsis">
+      ARM 开发板上执行 gcc 编译的 hello
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arm-hello">
+<span class="md-ellipsis">
+      ARM 开发板上执行交叉编译工具链编译的 hello
+    </span>
+</a>
+<nav aria-label="ARM 开发板上执行交叉编译工具链编译的 hello" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#app_main">
+<a class="md-nav__link" href="#arm">
 <span class="md-ellipsis">
-      app_main
+      安装 ARM 交叉编译工具链
     </span>
 </a>
-<nav aria-label="app_main" class="md-nav">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arm-hello_1">
+<span class="md-ellipsis">
+      ARM 交叉编译工具链编译执行 hello
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hello_2">
+<span class="md-ellipsis">
+      hello 程序的引申
+    </span>
+</a>
+<nav aria-label="hello 程序的引申" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#load_conf">
+<a class="md-nav__link" href="#hc">
 <span class="md-ellipsis">
-      load_conf()
+      .h/.c 文件的差别
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      系统层次
     </span>
 </a>
 </li>
@@ -269,42 +338,15 @@
 </ul>
 </nav>
 </li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
-<span class="md-ellipsis">
-    嵌入式 linux 应用开发
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_3">
-<span class="md-nav__icon md-icon"></span>
-            嵌入式 linux 应用开发
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%20linux%20%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/1-1_%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91Hello%E7%A8%8B%E5%BA%8F/">
-<span class="md-ellipsis">
-    交叉编译Hello程序
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%20linux%20%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/2-1_GCC%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/">
+<a class="md-nav__link" href="../2-1_GCC%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/">
 <span class="md-ellipsis">
     GCC编译过程
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%20linux%20%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/2-2_GCC%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9/">
+<a class="md-nav__link" href="../2-2_GCC%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9/">
 <span class="md-ellipsis">
     GCC常用选项
   </span>
@@ -314,18 +356,18 @@
 <input class="md-nav__toggle md-toggle" id="__nav_2_3_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_3_4" id="__nav_2_3_4_label" tabindex="0">
 <span class="md-ellipsis">
-    tspi linux 开发
+    tspi_linux_开发
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-expanded="false" aria-labelledby="__nav_2_3_4_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_2_3_4">
 <span class="md-nav__icon md-icon"></span>
-            tspi linux 开发
+            tspi_linux_开发
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../%E5%B5%8C%E5%85%A5%E5%BC%8F%20linux%20%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/tspi_linux/%E7%BC%96%E8%AF%91%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">
+<a class="md-nav__link" href="../tspi_linux/%E7%BC%96%E8%AF%91%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">
 <span class="md-ellipsis">
     编译问题记录
   </span>
@@ -362,37 +404,79 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#hardware">
+<a class="md-nav__link" href="#_1">
 <span class="md-ellipsis">
-      Hardware
+      开发环境
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#firmware">
+<a class="md-nav__link" href="#hello_1">
 <span class="md-ellipsis">
-      Firmware
+      Hello 程序解析
     </span>
 </a>
-<nav aria-label="Firmware" class="md-nav">
-<ul class="md-nav__list">
+</li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#app_main">
+<a class="md-nav__link" href="#gcc-hello">
 <span class="md-ellipsis">
-      app_main
+      服务器执行 gcc 编译的 hello
     </span>
 </a>
-<nav aria-label="app_main" class="md-nav">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arm-gcc-hello">
+<span class="md-ellipsis">
+      ARM 开发板上执行 gcc 编译的 hello
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arm-hello">
+<span class="md-ellipsis">
+      ARM 开发板上执行交叉编译工具链编译的 hello
+    </span>
+</a>
+<nav aria-label="ARM 开发板上执行交叉编译工具链编译的 hello" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#load_conf">
+<a class="md-nav__link" href="#arm">
 <span class="md-ellipsis">
-      load_conf()
+      安装 ARM 交叉编译工具链
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arm-hello_1">
+<span class="md-ellipsis">
+      ARM 交叉编译工具链编译执行 hello
     </span>
 </a>
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hello_2">
+<span class="md-ellipsis">
+      hello 程序的引申
+    </span>
+</a>
+<nav aria-label="hello 程序的引申" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hc">
+<span class="md-ellipsis">
+      .h/.c 文件的差别
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      系统层次
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -404,54 +488,152 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="cdcam">CDCAM 探究</h1>
-<p>项目地址: <a href="https://github.com/dukelec/cdcam/tree/hw_v1">cdcam</a></p>
-<h2 id="hardware">Hardware</h2>
-<p>原理图:<a href="https://github.com/dukelec/cdcam/blob/master/hardware/cdcam_sch_v1.4.pdf">cdcam_sch_v1.4.pdf</a></p>
+<h1 id="hello">交叉编译Hello程序</h1>
+<hr/>
+<h2 id="_1">开发环境</h2>
 <div class="mermaid">flowchart LR
-   subgraph 动态库
-    direction LR
-     A(STM32G071) --&gt;|DVP| B(OV2640)
-     C(CDCTL_B1) --&gt;|CD_SPI| A
-     D(BUS_interface_1) --&gt;|RS485| C
-     E(BUS_interface_2) --&gt;|RS485| C
-     A --&gt;|SEN_SPI| F("SRAM(optional)")
-   end
+    A(Win PC) &lt;--&gt;|vscode remote| B(linux-server)
+    A &lt;--&gt;|SSH| C(ARM 开发板)
 </div>
-<h2 id="firmware">Firmware</h2>
-<h3 id="app_main">app_main</h3>
-<h4 id="load_conf">load_conf()</h4>
-<p>这段代码通过Kimi.ai的理解如下:</p>
-<blockquote>
-<p>结合您提供的两个代码段，我们可以更全面地理解<code>load_conf</code>函数的作用和上下文。首先，<code>csa_dft</code>是一个<code>const csa_t</code>类型的常量结构体实例，它定&gt;义了一组默认的配置值，这些值将被用于初始化或验证加载的配置数据。</p>
-<p>以下是<code>load_conf</code>函数的详细解释：</p>
+<p>服务器(linux-server):</p>
+<pre><code class="language-sehll">    finchee@linux-server:~/Documents/hello$ uname -a
+    Linux linux-server 6.5.0-35-generic #35~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May  7 09:00:52 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+</code></pre>
+<p>ARM 开发板: <a href="https://lckfb.com/project/detail/lctspi-2g-16g?param=baseInfo">tspi-raspios</a></p>
+<h2 id="hello_1">Hello 程序解析</h2>
+<pre><code class="language-C">    #include &lt;stdio.h&gt;
+
+    // argc: argument count argv: argument value
+    int main(int argc, char **argv)
+    {
+    if(argc &gt;= 2)
+        printf("Hello, %s!\n", argv[1]);
+    else
+        printf("Hello, world\n");
+    return 0;
+    }
+</code></pre>
+<p>如果提供了至少一个命令行参数（不包括程序名），它将打印出"Hello, [参数]!"。<br/>
+如果没有提供命令行参数，它将打印出"Hello, world!"。</p>
+<p>argv[0] 指向 hello<br/>
+argv[1] 指向第二个参数  </p>
+<h2 id="gcc-hello">服务器执行 gcc 编译的 hello</h2>
+<pre><code class="language-shell">    finchee@linux-server:~/Documents/hello$ gcc -o hello hello.c
+    finchee@linux-server:~/Documents/hello$ ./hello finchee
+    Hello, finchee!
+    finchee@linux-server:~/Documents/hello$ ./hello finchee how are you?
+    Hello, finchee!
+    finchee@linux-server:~/Documents/hello$ ./hello "finchee how are you?"
+    Hello, finchee how are you?!
+    finchee@linux-server:~/Documents/hello$ 
+</code></pre>
+<h2 id="arm-gcc-hello">ARM 开发板上执行 gcc 编译的 hello</h2>
+<pre><code class="language-shell">    finchee@raspberrypi:~/Documents/hello $ sudo ./hello
+    sudo: ./hello: command not found
+    finchee@raspberrypi:~/Documents/hello $ file hello
+    hello: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=e2ced6fb612db420eab030c1e3d26f34c30d1843, for GNU/Linux 3.2.0, not stripped
+</code></pre>
+<h2 id="arm-hello">ARM 开发板上执行交叉编译工具链编译的 hello</h2>
+<h3 id="arm">安装 ARM 交叉编译工具链</h3>
+<p>服务器中安装 ARM 交叉编译工具链:</p>
+<pre><code class="language-shell">    finchee@linux-server:/usr/bin$ sudo apt-get install gcc-arm-linux-gnueabihf
+</code></pre>
+<p>确认是否安装成功</p>
+<pre><code class="language-shell">    finchee@linux-server:/usr/bin$ arm-linux-gnueabihf-gcc -v
+    Using built-in specs.
+    COLLECT_GCC=arm-linux-gnueabihf-gcc
+    COLLECT_LTO_WRAPPER=/usr/lib/gcc-cross/arm-linux-gnueabihf/11/lto-wrapper
+    Target: arm-linux-gnueabihf
+    Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libitm --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --without-target-system-zlib --enable-multiarch --disable-sjlj-exceptions --with-arch=armv7-a+fp --with-float=hard --with-mode=thumb --disable-werror --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=arm-linux-gnueabihf --program-prefix=arm-linux-gnueabihf- --includedir=/usr/arm-linux-gnueabihf/include --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+    Thread model: posix
+    Supported LTO compression algorithms: zlib zstd
+    gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04) 
+</code></pre>
+<h3 id="arm-hello_1">ARM 交叉编译工具链编译执行 hello</h3>
+<pre><code class="language-shell">    finchee@linux-server:~/Documents/hello$ arm-linux-gnueabihf-gcc -o hello hello.c
+</code></pre>
+<p>ARM 开发板执行 ./hello 碰到如下问题:</p>
+<pre><code class="language-shell">    finchee@raspberrypi:~/Documents/hello $ sudo ./hello
+    sudo: ./hello: command not found
+    finchee@raspberrypi:~/Documents/hello $ ./hello
+    -bash: ./hello: Permission denied
+    finchee@raspberrypi:~/Documents/hello $ file hello
+    hello: ELF 32-bit LSB pie executable, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-armhf.so.3, BuildID[sha1]=b1771a5aa9c09f0b31345c161ad5ff6fa4909399, for GNU/Linux 3.2.0, not stripped
+</code></pre>
+<p>根据 <a href="https://blog.csdn.net/li_Xing666/article/details/81487840">ARM上运行可执行程序出现No such file or directory的问题</a> 中的方法, 服务器编译时增加 <code>-static</code> 参数</p>
+<pre><code class="language-shell">    finchee@linux-server:~/Documents/hello$ arm-linux-gnueabihf-gcc -o hello hello.c -static
+</code></pre>
+<p>拷贝到 ARM 开发板执行结果如下</p>
+<pre><code class="language-shell">    finchee@raspberrypi:~/Documents/hello $ ./hello finchee
+    Hello, finchee!
+    finchee@raspberrypi:~/Documents/hello $ file ./hello
+    ./hello: ELF 32-bit LSB executable, ARM, EABI5 version 1 (GNU/Linux), statically linked, BuildID[sha1]=a5b138ce6e9a9bcd4a2014062121e7a1e4a9f505, for GNU/Linux 3.2.0, not stripped
+</code></pre>
+<p>两次编译后的区别如下</p>
+<pre><code class="language-shell">    EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-armhf.so.3, 
+    EABI5 version 1 (GNU/Linux), statically linked, 
+</code></pre>
+<p>关于使用静态链接的方式进行编译, 这一部分待探究补充.</p>
+<h2 id="hello_2">hello 程序的引申</h2>
+<h3 id="hc">.h/.c 文件的差别</h3>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>功能</th>
+<th>位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.h</td>
+<td>声明函数/declare<br/>(举例:int add(int a, int b);<br/> 编译器根据声明检查<br/>函数的使用是否正确)</td>
+<td>1. 系统目录(工具链的目录)<br/>2. 用户指定目录(-I dir)</td>
+</tr>
+<tr>
+<td>.c</td>
+<td>实现/define(implement)</td>
+<td>1. 系统目录<br/>2. 用户指定目录</td>
+</tr>
+</tbody>
+</table>
+<p>可以根据以上引申解决以下问题</p>
 <ol>
-<li><code>uint16_t magic_code = *(uint16_t *)APP_CONF_ADDR;</code>&gt;
-   从<code>APP_CONF_ADDR</code>地址读取16位的值到<code>magic_code</code>变量，用于检查配置数据的魔法数字。</li>
-<li><code>uint16_t conf_ver = *(uint16_t *)(APP_CONF_ADDR + 2);</code>&gt;
-   从<code>APP_CONF_ADDR</code>地址加上2的位置读取16位的值到<code>conf_ver</code>变量，用于获取配置数据的版本号。</li>
-<li><code>csa = csa_dft;</code>
-   将<code>csa_dft</code>的默认配置值复制给<code>csa</code>变量。这是在加载外部配置之前，先使用默认配置作为基础。</li>
-<li><code>if (magic_code == 0xcdcd &amp;&amp; conf_ver == APP_CONF_VER) { ... }</code>
-   如果读取的魔法数字和版本号与预期的默认值匹配，执行以下操作：<ul>
-<li>使用<code>memcpy</code>函数将从<code>APP_CONF_ADDR</code>地址开始的数据复制到<code>csa</code>结构体中，直到<code>_end_save</code>成员之前的位置。<code>_end_save</code>是<code>csa_t</code>结构体中定义的一个特殊成员，用于标识需要保存的配置数据的结束位置。</li>
-<li>将<code>csa</code>结构体中的<code>conf_from</code>成员设置为1，表示配置是从有效的外部来源加载的。</li>
-</ul>
-</li>
-<li><code>else if (magic_code == 0xcdcd &amp;&amp; (conf_ver &gt;&gt; 8) == (APP_CONF_VER &gt;&gt; 8)) { ... }</code>
-   如果读取的魔法数字正确，但版本号只有高8位与预期的默认值匹配（可能表示轻微的版本差异），执行以下操作：<ul>
-<li>使用<code>memcpy</code>函数将从<code>APP_CONF_ADDR</code>地址开始的数据复制到<code>csa</code>结构体中，直到<code>_end_common</code>成员之前的位置。<code>_end_common</code>是<code>csa_t</code>结构体中定义的另一个特殊成员，用于标识通用配置数据的结束位置。</li>
-<li>将<code>csa</code>结构体中的<code>conf_from</code>成员设置为2，表示配置是从外部来源加载的，但可能存在版本差异。</li>
-<li>更新<code>csa</code>结构体中的<code>conf_ver</code>成员为<code>APP_CONF_VER</code>，确保版本号是最新的。</li>
-</ul>
-</li>
-<li><code>if (csa.conf_from) ...</code>
-   如果<code>csa</code>结构体的<code>conf_from</code>成员不为0（即配置已经从外部加载），则将<code>csa</code>结构体中的<code>do_reboot</code>成员及其后两个字节清零。这可能是用于重置或禁用自动重启的标志。</li>
+<li>头文件找不到</li>
+<li>函数未定义</li>
 </ol>
-<p>整体来看，<code>load_conf</code>函数的作用是尝试从<code>APP_CONF_ADDR</code>地址加载配置数据到<code>csa</code>结构体。如果加载成功或部分成功，它会更新<code>csa</code>结构体的相应成员，并根据配置的来源设置<code>conf_from</code>标志。如果配置加载存在问题，它将回退到使用默认配置<code>csa_dft</code>。</p>
-</blockquote>
-<p>关于<code>APP_CONF_ADDR</code>地址, 实际是MCU内部flash的一个地址:
-<img alt="存储器映射和寄存器边界地址" src="../img/Snipaste_2024-06-19_18-05-37.png"/></p>
+<h3 id="_2">系统层次</h3>
+<table>
+<thead>
+<tr>
+<th>系统层次</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>usr</td>
+<td>APP</td>
+<td></td>
+</tr>
+<tr>
+<td>usr</td>
+<td>libc</td>
+<td>&lt;--printf/open/read</td>
+</tr>
+<tr>
+<td>kernel</td>
+<td>FS/Driver</td>
+<td>&lt;--open/read</td>
+</tr>
+<tr>
+<td>底层硬件</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>

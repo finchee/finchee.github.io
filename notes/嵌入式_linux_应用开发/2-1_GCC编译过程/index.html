@@ -6,12 +6,12 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="finchee" name="author"/>
-<link href="https://blog.finchee.site/notes/%E5%B5%8C%E5%85%A5%E5%BC%8F%20linux%20%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/2-2_GCC%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9/" rel="canonical"/>
-<link href="../2-1_GCC%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/" rel="prev"/>
-<link href="../tspi_linux/%E7%BC%96%E8%AF%91%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" rel="next"/>
+<link href="https://blog.finchee.site/notes/%E5%B5%8C%E5%85%A5%E5%BC%8F_linux_%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/2-1_GCC%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/" rel="canonical"/>
+<link href="../1-1_%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91Hello%E7%A8%8B%E5%BA%8F/" rel="prev"/>
+<link href="../2-2_GCC%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.0, mkdocs-material-9.5.24" name="generator"/>
-<title>GCC常用选项 - finchee's site</title>
+<title>GCC编译过程 - finchee's site</title>
 <link href="../../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -47,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              GCC常用选项
+              GCC编译过程
             
           </span>
 </div>
@@ -183,14 +183,14 @@
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../mkdocs/">
 <span class="md-ellipsis">
-    mkdocs
+    MkDocs
   </span>
 </a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_1">
 <span class="md-nav__icon md-icon"></span>
-            mkdocs
+            MkDocs
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 </ul>
@@ -215,7 +215,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../CDPNP/01_CDCAM%20%E6%8E%A2%E7%A9%B6/">
+<a class="md-nav__link" href="../../CDPNP/01_CDCAM_%E6%8E%A2%E7%A9%B6/">
 <span class="md-ellipsis">
     CDCAM 探究
   </span>
@@ -228,14 +228,14 @@
 <input checked="" class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
 <span class="md-ellipsis">
-    嵌入式 linux 应用开发
+    嵌入式_linux_应用开发
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-expanded="true" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_3">
 <span class="md-nav__icon md-icon"></span>
-            嵌入式 linux 应用开发
+            嵌入式_linux_应用开发
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -245,24 +245,17 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../2-1_GCC%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B/">
-<span class="md-ellipsis">
-    GCC编译过程
-  </span>
-</a>
-</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
 <span class="md-ellipsis">
-    GCC常用选项
+    GCC编译过程
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
-    GCC常用选项
+    GCC编译过程
   </span>
 </a>
 <nav aria-label="目录" class="md-nav md-nav--secondary">
@@ -272,66 +265,80 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_1">
+<a class="md-nav__link" href="#gcc_1">
 <span class="md-ellipsis">
-      多文件编译
+      GCC编译流程图
     </span>
 </a>
-<nav aria-label="多文件编译" class="md-nav">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      历史过程
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hello">
+<span class="md-ellipsis">
+      hello 编译过程解析
+    </span>
+</a>
+<nav aria-label="hello 编译过程解析" class="md-nav">
 <ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hello_1">
+<span class="md-ellipsis">
+      hello 程序
+    </span>
+</a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
-      常用编译选项
+      编译过程及查看过程
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
-      源程序内容
+      过程解析
     </span>
 </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_4">
 <span class="md-ellipsis">
-      编译及执行结果
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
-<span class="md-ellipsis">
-      制作、使用动态或静态库
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
-<span class="md-ellipsis">
-      总结
+      分步执行
     </span>
 </a>
 </li>
 </ul>
 </nav>
 </li>
-</ul>
-</nav>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../2-2_GCC%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9/">
+<span class="md-ellipsis">
+    GCC常用选项
+  </span>
+</a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_3_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_3_4" id="__nav_2_3_4_label" tabindex="0">
 <span class="md-ellipsis">
-    tspi linux 开发
+    tspi_linux_开发
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-expanded="false" aria-labelledby="__nav_2_3_4_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_2_3_4">
 <span class="md-nav__icon md-icon"></span>
-            tspi linux 开发
+            tspi_linux_开发
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -372,50 +379,57 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_1">
+<a class="md-nav__link" href="#gcc_1">
 <span class="md-ellipsis">
-      多文件编译
+      GCC编译流程图
     </span>
 </a>
-<nav aria-label="多文件编译" class="md-nav">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      历史过程
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hello">
+<span class="md-ellipsis">
+      hello 编译过程解析
+    </span>
+</a>
+<nav aria-label="hello 编译过程解析" class="md-nav">
 <ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hello_1">
+<span class="md-ellipsis">
+      hello 程序
+    </span>
+</a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
-      常用编译选项
+      编译过程及查看过程
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
-      源程序内容
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-<span class="md-ellipsis">
-      编译及执行结果
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
-<span class="md-ellipsis">
-      制作、使用动态或静态库
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
-<span class="md-ellipsis">
-      总结
+      过程解析
     </span>
 </a>
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      分步执行
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -424,10 +438,140 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="gcc">GCC常用选项</h1>
+<h1 id="gcc">GCC编译过程</h1>
 <hr/>
-<h2 id="_1">多文件编译</h2>
-<h3 id="_2">常用编译选项</h3>
+<h2 id="gcc_1">GCC编译流程图</h2>
+<div class="mermaid">flowchart LR
+    A(main.c) --&gt;|预处理| B(main.i)
+    B --&gt;|编译| C(main.s)
+    C --&gt;|汇编| D(main.o)
+    D --&gt;|链接| E(LED.elf)
+    E --&gt;|反汇编| F(led.dis)
+    G(start.s) --&gt;|汇编| H(start.o)
+    H --&gt;|链接| E
+</div>
+<p>预处理: 1.查找头文件 2.展开宏</p>
+<h2 id="_1">历史过程</h2>
+<div class="mermaid">flowchart LR
+    subgraph 历史发展
+        direction TB
+        A(电工操作开关) --&gt;|升级| B(纸带打孔)
+        B --&gt; C(英文助记符)
+        C --&gt; D(高级语言)
+    end
+    subgraph 编译关系
+        direction TB
+        B &lt;--&gt; E(机器码)
+        C &lt;--&gt; F(汇编码)
+        D &lt;--&gt; G(.c/.h文件)
+        I --&gt;|编译|F
+        F --&gt;|汇编| E
+        E --&gt;|反汇编| F
+        E --&gt;|链接| J(APP)
+        H(其他机器码) --&gt;|链接| J
+        G --&gt;|预处理|I(.i文件)
+    end
+</div>
+<h2 id="hello">hello 编译过程解析</h2>
+<h3 id="hello_1">hello 程序</h3>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+
+#define MAX 20
+#define MIN 10
+
+//#define   _DEBUG
+#define     SetBit(x)   (1&lt;&lt;x)
+
+int main(int argc, char* argv[])
+{
+    printf("hello World! \n");
+    printf("MAX = %d, MIN = %d, MAX + MIN = %d \n", MAX, MIN, MAX + MIN);
+
+#ifdef _DEBUG
+    printf("SetBit(5) = %d, SetBit(6) = %d \n", SetBit(5), SetBit(6));
+    printf("SetBit( SetBit(2) ) = %d \n", SetBit( SetBit(2) ));
+#endif
+    return 0;
+}
+</code></pre>
+<h3 id="_2">编译过程及查看过程</h3>
+<p>编译及执行结果:</p>
+<pre><code class="language-shell">finchee@linux-server:~/Documents/嵌入式linux应用开发基础/02_options/01_hello$ gcc -o hello hello.c
+finchee@linux-server:~/Documents/嵌入式linux应用开发基础/02_options/01_hello$ ./hello
+hello World! 
+MAX = 20, MIN = 10, MAX + MIN = 30 
+</code></pre>
+<p>编译选项加<code>-v</code>查看详细编译过程:</p>
+<pre><code class="language-sehll">finchee@linux-server:~/Documents/嵌入式linux应用开发基础/02_options/01_hello$ gcc -o hello hello.c -v
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-XeT9lY/gcc-11-11.4.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-XeT9lY/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04) 
+COLLECT_GCC_OPTIONS='-o' 'hello' '-v' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/11/cc1 -quiet -v -imultiarch x86_64-linux-gnu hello.c -quiet -dumpbase hello.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccgd2QMp.s
+GNU C17 (Ubuntu 11.4.0-1ubuntu1~22.04) version 11.4.0 (x86_64-linux-gnu)
+        compiled by GNU C version 11.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/11/../../../../x86_64-linux-gnu/include"
+#include "..." search starts here:
+#include &lt;...&gt; search starts here:
+ /usr/lib/gcc/x86_64-linux-gnu/11/include
+ /usr/local/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+GNU C17 (Ubuntu 11.4.0-1ubuntu1~22.04) version 11.4.0 (x86_64-linux-gnu)
+        compiled by GNU C version 11.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 50eaa2331df977b8016186198deb2d18
+COLLECT_GCC_OPTIONS='-o' 'hello' '-v' '-mtune=generic' '-march=x86-64'
+ as -v --64 -o /tmp/ccPnzdL0.o /tmp/ccgd2QMp.s
+GNU汇编版本 2.38 (x86_64-linux-gnu) 使用BFD版本 (GNU Binutils for Ubuntu) 2.38
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-o' 'hello' '-v' '-mtune=generic' '-march=x86-64' '-dumpdir' 'hello.'
+ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccM099Zb.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o hello /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. /tmp/ccPnzdL0.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-o' 'hello' '-v' '-mtune=generic' '-march=x86-64' '-dumpdir' 'hello.'
+</code></pre>
+<h3 id="_3">过程解析</h3>
+<p>使用 <code>cc1</code> 命令将 hello.c 编译为临时的 .s 文件 :</p>
+<pre><code class="language-shell"> /usr/lib/gcc/x86_64-linux-gnu/11/cc1 hello.c -o /tmp/ccgd2QMp.s
+</code></pre>
+<p>cc1 同时会预处理头文件位置(可以看到"..."和&lt;...&gt;搜索路径不同):</p>
+<pre><code class="language-shell">#include "..." search starts here:
+#include &lt;...&gt; search starts here:
+ /usr/lib/gcc/x86_64-linux-gnu/11/include
+ /usr/local/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+</code></pre>
+<p>使用 <code>as</code> 命令将 .s文件 汇编为 .o文件 :</p>
+<pre><code class="language-shell"> as -v --64 -o /tmp/ccPnzdL0.o /tmp/ccgd2QMp.s
+</code></pre>
+<p>编译路径</p>
+<pre><code class="language-shell">COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
+</code></pre>
+<p>库路径</p>
+<pre><code class="language-shell">LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
+</code></pre>
+<p>使用 <code>collect2</code> 链接 .o/.so/.a文件 成为 APP:</p>
+<pre><code class="language-shell">COLLECT_GCC_OPTIONS='-o' 'hello' '-v' '-mtune=generic' '-march=x86-64' '-dumpdir' 'hello.'
+ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/tmp/ccM099Zb.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o hello /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. /tmp/ccPnzdL0.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-o' 'hello' '-v' '-mtune=generic' '-march=x86-64' '-dumpdir' 'hello.'
+</code></pre>
+<h2 id="_4">分步执行</h2>
+<p>使用以下参数分布执行编译过程:</p>
 <table>
 <thead>
 <tr>
@@ -447,168 +591,6 @@
 <tr>
 <td>-o</td>
 <td>指定输出文件</td>
-</tr>
-<tr>
-<td>-I</td>
-<td>指定头文件目录</td>
-</tr>
-<tr>
-<td>-L</td>
-<td>指定链接时的库文件目录</td>
-</tr>
-<tr>
-<td>-l</td>
-<td>指定链接的库文件</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_3">源程序内容</h3>
-<p>main.c:</p>
-<pre><code class="language-C">#include &lt;stdio.h&gt;
-#include "sub.h"
-
-int main(int argc, char *argv[])
-{
-    int i
-    printf("main fun! \n");
-    sub_fun();
-    return 0;
-}
-</code></pre>
-<p>sub.h:</p>
-<pre><code class="language-C">void sub_fun(void);
-</code></pre>
-<p>sub.c:</p>
-<pre><code class="language-C">void sub_fun(void)
-{
-    printf("sub fun! \n");
-}
-</code></pre>
-<h3 id="_4">编译及执行结果</h3>
-<pre><code class="language-shell">finchee@linux-server:~/Documents/嵌入式linux应用开发基础/02_options/02_multi_file$ gcc -o test main.c sub.c
-sub.c: In function ‘sub_fun’:
-sub.c:3:5: warning: implicit declaration of function ‘printf’ [-Wimplicit-function-declaration]
-    3 |     printf("sub fun! \n");
-      |     ^~~~~~
-sub.c:1:1: note: include ‘&lt;stdio.h&gt;’ or provide a declaration of ‘printf’
-  +++ |+#include &lt;stdio.h&gt;
-    1 | void sub_fun(void)
-sub.c:3:5: warning: incompatible implicit declaration of built-in function ‘printf’ [-Wbuiltin-declaration-mismatch]
-    3 |     printf("sub fun! \n");
-      |     ^~~~~~
-sub.c:3:5: note: include ‘&lt;stdio.h&gt;’ or provide a declaration of ‘printf’
-finchee@linux-server:~/Documents/嵌入式linux应用开发基础/02_options/02_multi_file$ ./test
-main fun! 
-sub fun! 
-</code></pre>
-<p>GCC 的处理流程:</p>
-<div class="mermaid">flowchart LR
-  A(main.c) --&gt;|预处理| B(main.i)
-  B --&gt;|编译| C(main.s)
-  C --&gt;|汇编| D(main.o)
-  D --&gt;|链接| I(test)
-  E(sub.c) --&gt;|预处理| F(sub.i)
-  F --&gt;|编译| G(sub.s)
-  G --&gt;|汇编| H(sub.o)
-  H --&gt;|链接| I
-</div>
-<p>可以使用 <code>-v</code> 选项查看详细编译过程, 此处仅展示关系并说明要点:</p>
-<div class="mermaid">flowchart LR
-A(main.c) --&gt;|cc1| B(/tmp/ccA0k7FA.s)
-B --&gt;|as| C(/tmp/ccpIg1pK.o)
-C --&gt;|collect2| I(test)
-E(sub.c) --&gt;|cc1| F(/tmp/ccA0k7FA.s)
-F --&gt;|as| G(/tmp/cckyAyfU.o)
-G --&gt;|collect2| I
-D("各种库(liblto.so...)和系统提供的启动文件(Scrt1.o/crti.o...)") --&gt;|collect2| I
-</div>
-<ol>
-<li><code>cc1</code> 将 main.c 和 sub.c 转换成的临时文件(/tmp/ccA0k7FA.s)可以同名</li>
-<li>需要编译的源文件过多时, <code>-o</code> 选项不适合修改单个文件后再编译使用, 只需要使用 <code>-c</code> 选项先编译, 再使用 <code>-o</code> 选项链接所有文件即可.</li>
-<li>预处理过程中<ul>
-<li>使用 <code>"..."</code> 引用的头文件会在当前目录下查找</li>
-<li>使用 <code>&lt;...&gt;</code> 引用的头文件会在系统或编译工具链指定的目录下查找</li>
-<li>找不到头文件时, 通过 <code>-I</code> 选项为头文件增加指定搜索的目录, 或这把头文件放入系统/工具链指定的目录中</li>
-</ul>
-</li>
-</ol>
-<h3 id="_5">制作、使用动态或静态库</h3>
-<p>sub.c 可以作为静态库或动态库使用</p>
-<div class="mermaid">flowchart LR
-   subgraph 静态库
-    direction LR
-     A(sub.c) --&gt;|gcc -c -o| B(sub.o)
-     C(sub1.c) --&gt;|gcc -c -o| D(sub1.o)
-     B --&gt;|ar crs| E(libsub.a)
-     D --&gt;|ar crs| E(libsub.a)
-     sub2.o... --&gt;|ar crs| E(libsub.a)
-     E --&gt;|gcc -o| test
-     F(main.c) --&gt;|gcc -c -o| G(main.o)
-     G --&gt;|gcc -o| test
-   end
-</div>
-<div class="mermaid">flowchart LR
-   subgraph 动态库
-    direction LR
-     A(sub.c) --&gt;|gcc -c -o| B(sub.o)
-     C(sub1.c) --&gt;|gcc -c -o| D(sub1.o)
-     B --&gt;|gcc -shared -o| E(libsub.a)
-     D --&gt;|gcc -shared -o| E(libsub.a)
-     sub2.o... --&gt;|gcc -shared -o| E(libsub.a)
-     E --&gt;|gcc -o| test2
-     F(main.c) --&gt;|gcc -c -o| G(main.o)
-     G --&gt;|gcc -o| test2
-   end
-</div>
-<div class="mermaid">flowchart LR
-   subgraph 使用 -l -L 链接库文件
-    direction LR
-     A(sub.c) --&gt;|gcc -c -o| B(sub.o)
-     C(sub1.c) --&gt;|gcc -c -o| D(sub1.o)
-     B --&gt;|gcc -shared -o| E(libsub.so)
-     D --&gt;|gcc -shared -o| E(libsub.so)
-     sub2.o... --&gt;|gcc -shared -o| E(libsub.so)
-     E --&gt;|gcc -o -lsub -L ./libsub.so所在目录 -lsub| test2
-     F(main.c) --&gt;|gcc -c -o| G(main.o)
-     G --&gt;|gcc -o -lsub -L ./libsub.so所在目录 -lsub| test2
-   end
-</div>
-<ol>
-<li>静态库链接时会和 main.o 打包在一起生成 test, 体积比动态库链接生成的 test2 大</li>
-<li>使用 <code>-l+库名</code> 选项链接库时, 如果找不到文件, 需要使用 <code>-L</code> 选项将 libsub.so 所在目录添加到 <code>LIBRARY_PATH</code> 中</li>
-<li>使用 <code>file</code> 命令查看两种链接方式产生的 test 文件, 都为动态链接(dynamically link), 是因为静态链接方式除了静态链接到 libsub.a , 还会动态链接其他库</li>
-<li>执行 <code>./test2</code> 时会提示找不到动态库, 链接和执行是两个不同的概念, 需要为执行指定库的路径:<ol>
-<li>将动态库放入系统指定的路径(/lib /usr/lib ...)</li>
-<li>用户指定的路径
-    1. 让 LD_LIBRARY_PATH 等于原来的值加上新的值
-      &gt; export LD_LIBRARY_PATH = $LD_LIBRARY_PATH:./</li>
-</ol>
-</li>
-</ol>
-<h3 id="_6">总结</h3>
-<table>
-<thead>
-<tr>
-<th>文件</th>
-<th>备注</th>
-<th>查找位置</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>头文件</td>
-<td>&lt;...&gt;<br/>"..."</td>
-<td>1.系统指定的头文件目录<br/>2.<code>-I</code>指定dir</td>
-</tr>
-<tr>
-<td>库文件</td>
-<td>-lxxx</td>
-<td>1.系统指定的lib目录<br/>2.<code>-L</code>指定dir</td>
-</tr>
-<tr>
-<td>执行</td>
-<td>.so</td>
-<td>1.系统指定的路径(/lib /usr/lib ...)<br/>2.使用环境变量<code>LD_LIBRARY_PATH</code>指定</td>
 </tr>
 </tbody>
 </table>
