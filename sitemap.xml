@@ -6,7 +6,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://blog.finchee.site/99_about_me/</loc>
+         <loc>http://blog.finchee.site/about_me/</loc>
+         <lastmod>2024-06-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>http://blog.finchee.site/notes/CDPNP/</loc>
          <lastmod>2024-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -16,7 +21,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>http://blog.finchee.site/notes/mkdocs/%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</loc>
+         <loc>http://blog.finchee.site/notes/mkdocs/</loc>
          <lastmod>2024-06-20</lastmod>
          <changefreq>daily</changefreq>
     </url>
