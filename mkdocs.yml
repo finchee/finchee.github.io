@@ -21,14 +21,15 @@ nav:
   - index.md
   - about_me.md
 - 学习笔记:
-  - mkdocs:
+  - MkDocs:
     - .\notes\mkdocs\index.md
   - CDPNP:
     - .\notes\CDPNP\index.md
-    - .\notes\CDPNP\01_CDCAM 探究.md
-  - 嵌入式 linux 应用开发:
-    - .\notes\嵌入式 linux 应用开发\1-1_交叉编译Hello程序.md
-    - .\notes\嵌入式 linux 应用开发\2-1_GCC编译过程.md
-    - .\notes\嵌入式 linux 应用开发\2-2_GCC常用选项.md
-    - tspi linux 开发:
-      - .\notes\嵌入式 linux 应用开发\tspi_linux\编译问题记录.md
+    - .\notes\CDPNP\01_CDCAM_探究.md
+  - 嵌入式_linux_应用开发:
+    - .\notes\嵌入式_linux_应用开发\1-1_交叉编译Hello程序.md
+    - .\notes\嵌入式_linux_应用开发\2-1_GCC编译过程.md
+    - .\notes\嵌入式_linux_应用开发\2-2_GCC常用选项.md
+    - tspi_linux_开发:
+      - .\notes\嵌入式_linux_应用开发\tspi_linux\编译问题记录.md
+- 评论: comments.md

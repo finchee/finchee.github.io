@@ -13,5 +13,3 @@
 [多媒体](http://finchee.site:5244/)
 
 [家庭助理](http://finchee.site:8123)
-
-[关于](./about_me.md)
