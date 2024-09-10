@@ -6,10 +6,10 @@
 
 网页导航👇
 
-[服务器](http://finchee.site:24859/adminlogin)
+[服务器](https://finchee.site:8082/adminlogin)
 
-[图书馆](http://finchee.site:8083)
+[图书馆](https://finchee.site:8083)
 
-[多媒体](http://finchee.site:5244/)
+[多媒体](https://finchee.site:5244/)
 
-[家庭助理](http://finchee.site:8123)
+[NAS](https://finchee.site:8443)
