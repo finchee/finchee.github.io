@@ -6,10 +6,8 @@
 
 网页导航👇
 
-[服务器](https://finchee.site:8082/adminlogin)
+[NAS管理](https://nas.finchee.top)
 
-[图书馆](https://finchee.site:8083)
+[图书馆](https://book.finchee.top)
 
-[多媒体](https://finchee.site:5244/)
-
-[NAS](https://finchee.site:8443)
+[多媒体](https://alist.finchee.top)
